@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Projects_Engineers_Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="PE_CApplicationRole">
+          <Key>
+            <PropertyRef Name="Id_ApplicationRole" />
+          </Key>
+          <Property Name="Id_ApplicationRole" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ApplicationRole" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PE_CCity">
+          <Key>
+            <PropertyRef Name="Id_City" />
+          </Key>
+          <Property Name="Id_City" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_State" Type="int" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Latitude" Type="decimal" Precision="20" Scale="10" Nullable="false" />
+          <Property Name="Longitude" Type="decimal" Precision="20" Scale="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PE_CCountry">
+          <Key>
+            <PropertyRef Name="Id_Country" />
+          </Key>
+          <Property Name="Id_Country" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PE_CDepartment">
+          <Key>
+            <PropertyRef Name="Id_Department" />
+          </Key>
+          <Property Name="Id_Department" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Department" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PE_CJobTitle">
+          <Key>
+            <PropertyRef Name="Id_JobTitle" />
+          </Key>
+          <Property Name="Id_JobTitle" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="JobTitle" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PE_CState">
+          <Key>
+            <PropertyRef Name="Id_State" />
+          </Key>
+          <Property Name="Id_State" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Country" Type="int" Nullable="false" />
+          <Property Name="State" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PE_User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Honeywell" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id_Department" Type="int" />
+          <Property Name="Id_JobTitle" Type="int" />
+          <Property Name="Id_ApplicationRole" Type="int" />
+          <Property Name="Id_ImmediateSuperior" Type="int" />
+          <Property Name="Password" Type="varbinary(max)" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PE_UserLocation">
+          <Key>
+            <PropertyRef Name="Id_UserLocation" />
+          </Key>
+          <Property Name="Id_UserLocation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_User" Type="int" Nullable="false" />
+          <Property Name="Id_City" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="CApplicationRole_User">
+          <End Role="PE_CApplicationRole" Type="Self.PE_CApplicationRole" Multiplicity="0..1" />
+          <End Role="PE_User" Type="Self.PE_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CApplicationRole">
+              <PropertyRef Name="Id_ApplicationRole" />
+            </Principal>
+            <Dependent Role="PE_User">
+              <PropertyRef Name="Id_ApplicationRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CDepartment_User">
+          <End Role="PE_CDepartment" Type="Self.PE_CDepartment" Multiplicity="0..1" />
+          <End Role="PE_User" Type="Self.PE_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CDepartment">
+              <PropertyRef Name="Id_Department" />
+            </Principal>
+            <Dependent Role="PE_User">
+              <PropertyRef Name="Id_Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="City_UserLocation">
+          <End Role="PE_CCity" Type="Self.PE_CCity" Multiplicity="1" />
+          <End Role="PE_UserLocation" Type="Self.PE_UserLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CCity">
+              <PropertyRef Name="Id_City" />
+            </Principal>
+            <Dependent Role="PE_UserLocation">
+              <PropertyRef Name="Id_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CJobTitle_User">
+          <End Role="PE_CJobTitle" Type="Self.PE_CJobTitle" Multiplicity="0..1" />
+          <End Role="PE_User" Type="Self.PE_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CJobTitle">
+              <PropertyRef Name="Id_JobTitle" />
+            </Principal>
+            <Dependent Role="PE_User">
+              <PropertyRef Name="Id_JobTitle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Country_State">
+          <End Role="PE_CCountry" Type="Self.PE_CCountry" Multiplicity="1" />
+          <End Role="PE_CState" Type="Self.PE_CState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CCountry">
+              <PropertyRef Name="Id_Country" />
+            </Principal>
+            <Dependent Role="PE_CState">
+              <PropertyRef Name="Id_Country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="State_City">
+          <End Role="PE_CState" Type="Self.PE_CState" Multiplicity="0..1" />
+          <End Role="PE_CCity" Type="Self.PE_CCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CState">
+              <PropertyRef Name="Id_State" />
+            </Principal>
+            <Dependent Role="PE_CCity">
+              <PropertyRef Name="Id_State" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_UserLocation">
+          <End Role="PE_User" Type="Self.PE_User" Multiplicity="1" />
+          <End Role="PE_UserLocation" Type="Self.PE_UserLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_User">
+              <PropertyRef Name="Id_User" />
+            </Principal>
+            <Dependent Role="PE_UserLocation">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Projects_Engineers_ModelStoreContainer">
+          <EntitySet Name="PE_CApplicationRole" EntityType="Self.PE_CApplicationRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PE_CCity" EntityType="Self.PE_CCity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PE_CCountry" EntityType="Self.PE_CCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PE_CDepartment" EntityType="Self.PE_CDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PE_CJobTitle" EntityType="Self.PE_CJobTitle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PE_CState" EntityType="Self.PE_CState" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PE_User" EntityType="Self.PE_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PE_UserLocation" EntityType="Self.PE_UserLocation" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="CApplicationRole_User" Association="Self.CApplicationRole_User">
+            <End Role="PE_CApplicationRole" EntitySet="PE_CApplicationRole" />
+            <End Role="PE_User" EntitySet="PE_User" />
+          </AssociationSet>
+          <AssociationSet Name="CDepartment_User" Association="Self.CDepartment_User">
+            <End Role="PE_CDepartment" EntitySet="PE_CDepartment" />
+            <End Role="PE_User" EntitySet="PE_User" />
+          </AssociationSet>
+          <AssociationSet Name="City_UserLocation" Association="Self.City_UserLocation">
+            <End Role="PE_CCity" EntitySet="PE_CCity" />
+            <End Role="PE_UserLocation" EntitySet="PE_UserLocation" />
+          </AssociationSet>
+          <AssociationSet Name="CJobTitle_User" Association="Self.CJobTitle_User">
+            <End Role="PE_CJobTitle" EntitySet="PE_CJobTitle" />
+            <End Role="PE_User" EntitySet="PE_User" />
+          </AssociationSet>
+          <AssociationSet Name="Country_State" Association="Self.Country_State">
+            <End Role="PE_CCountry" EntitySet="PE_CCountry" />
+            <End Role="PE_CState" EntitySet="PE_CState" />
+          </AssociationSet>
+          <AssociationSet Name="State_City" Association="Self.State_City">
+            <End Role="PE_CState" EntitySet="PE_CState" />
+            <End Role="PE_CCity" EntitySet="PE_CCity" />
+          </AssociationSet>
+          <AssociationSet Name="User_UserLocation" Association="Self.User_UserLocation">
+            <End Role="PE_User" EntitySet="PE_User" />
+            <End Role="PE_UserLocation" EntitySet="PE_UserLocation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Projects_Engineers_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="PE_CApplicationRole">
+          <Key>
+            <PropertyRef Name="Id_ApplicationRole" />
+          </Key>
+          <Property Name="Id_ApplicationRole" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ApplicationRole" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PE_User" Relationship="Self.CApplicationRole_User" FromRole="PE_CApplicationRole" ToRole="PE_User" />
+        </EntityType>
+        <EntityType Name="PE_CCity">
+          <Key>
+            <PropertyRef Name="Id_City" />
+          </Key>
+          <Property Name="Id_City" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_State" Type="Int32" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Latitude" Type="Decimal" Precision="20" Scale="10" Nullable="false" />
+          <Property Name="Longitude" Type="Decimal" Precision="20" Scale="10" Nullable="false" />
+          <NavigationProperty Name="PE_UserLocation" Relationship="Self.City_UserLocation" FromRole="PE_CCity" ToRole="PE_UserLocation" />
+          <NavigationProperty Name="PE_CState" Relationship="Self.State_City" FromRole="PE_CCity" ToRole="PE_CState" />
+        </EntityType>
+        <EntityType Name="PE_CCountry">
+          <Key>
+            <PropertyRef Name="Id_Country" />
+          </Key>
+          <Property Name="Id_Country" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PE_CState" Relationship="Self.Country_State" FromRole="PE_CCountry" ToRole="PE_CState" />
+        </EntityType>
+        <EntityType Name="PE_CDepartment">
+          <Key>
+            <PropertyRef Name="Id_Department" />
+          </Key>
+          <Property Name="Id_Department" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Department" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PE_User" Relationship="Self.CDepartment_User" FromRole="PE_CDepartment" ToRole="PE_User" />
+        </EntityType>
+        <EntityType Name="PE_CJobTitle">
+          <Key>
+            <PropertyRef Name="Id_JobTitle" />
+          </Key>
+          <Property Name="Id_JobTitle" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="JobTitle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PE_User" Relationship="Self.CJobTitle_User" FromRole="PE_CJobTitle" ToRole="PE_User" />
+        </EntityType>
+        <EntityType Name="PE_CState">
+          <Key>
+            <PropertyRef Name="Id_State" />
+          </Key>
+          <Property Name="Id_State" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Country" Type="Int32" Nullable="false" />
+          <Property Name="State" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PE_CCity" Relationship="Self.State_City" FromRole="PE_CState" ToRole="PE_CCity" />
+          <NavigationProperty Name="PE_CCountry" Relationship="Self.Country_State" FromRole="PE_CState" ToRole="PE_CCountry" />
+        </EntityType>
+        <EntityType Name="PE_User">
+          <Key>
+            <PropertyRef Name="Id_User" />
+          </Key>
+          <Property Name="Id_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Honeywell" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Id_Department" Type="Int32" />
+          <Property Name="Id_JobTitle" Type="Int32" />
+          <Property Name="Id_ApplicationRole" Type="Int32" />
+          <Property Name="Id_ImmediateSuperior" Type="Int32" />
+          <Property Name="Password" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="PE_CApplicationRole" Relationship="Self.CApplicationRole_User" FromRole="PE_User" ToRole="PE_CApplicationRole" />
+          <NavigationProperty Name="PE_CDepartment" Relationship="Self.CDepartment_User" FromRole="PE_User" ToRole="PE_CDepartment" />
+          <NavigationProperty Name="PE_CJobTitle" Relationship="Self.CJobTitle_User" FromRole="PE_User" ToRole="PE_CJobTitle" />
+          <NavigationProperty Name="PE_UserLocation" Relationship="Self.User_UserLocation" FromRole="PE_User" ToRole="PE_UserLocation" />
+        </EntityType>
+        <EntityType Name="PE_UserLocation">
+          <Key>
+            <PropertyRef Name="Id_UserLocation" />
+          </Key>
+          <Property Name="Id_UserLocation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_User" Type="Int32" Nullable="false" />
+          <Property Name="Id_City" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="PE_CCity" Relationship="Self.City_UserLocation" FromRole="PE_UserLocation" ToRole="PE_CCity" />
+          <NavigationProperty Name="PE_User" Relationship="Self.User_UserLocation" FromRole="PE_UserLocation" ToRole="PE_User" />
+        </EntityType>
+        <Association Name="CApplicationRole_User">
+          <End Role="PE_CApplicationRole" Type="Self.PE_CApplicationRole" Multiplicity="0..1" />
+          <End Role="PE_User" Type="Self.PE_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CApplicationRole">
+              <PropertyRef Name="Id_ApplicationRole" />
+            </Principal>
+            <Dependent Role="PE_User">
+              <PropertyRef Name="Id_ApplicationRole" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="City_UserLocation">
+          <End Role="PE_CCity" Type="Self.PE_CCity" Multiplicity="1" />
+          <End Role="PE_UserLocation" Type="Self.PE_UserLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CCity">
+              <PropertyRef Name="Id_City" />
+            </Principal>
+            <Dependent Role="PE_UserLocation">
+              <PropertyRef Name="Id_City" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="State_City">
+          <End Role="PE_CState" Type="Self.PE_CState" Multiplicity="0..1" />
+          <End Role="PE_CCity" Type="Self.PE_CCity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CState">
+              <PropertyRef Name="Id_State" />
+            </Principal>
+            <Dependent Role="PE_CCity">
+              <PropertyRef Name="Id_State" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Country_State">
+          <End Role="PE_CCountry" Type="Self.PE_CCountry" Multiplicity="1" />
+          <End Role="PE_CState" Type="Self.PE_CState" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CCountry">
+              <PropertyRef Name="Id_Country" />
+            </Principal>
+            <Dependent Role="PE_CState">
+              <PropertyRef Name="Id_Country" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CDepartment_User">
+          <End Role="PE_CDepartment" Type="Self.PE_CDepartment" Multiplicity="0..1" />
+          <End Role="PE_User" Type="Self.PE_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CDepartment">
+              <PropertyRef Name="Id_Department" />
+            </Principal>
+            <Dependent Role="PE_User">
+              <PropertyRef Name="Id_Department" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CJobTitle_User">
+          <End Role="PE_CJobTitle" Type="Self.PE_CJobTitle" Multiplicity="0..1" />
+          <End Role="PE_User" Type="Self.PE_User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_CJobTitle">
+              <PropertyRef Name="Id_JobTitle" />
+            </Principal>
+            <Dependent Role="PE_User">
+              <PropertyRef Name="Id_JobTitle" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="User_UserLocation">
+          <End Role="PE_User" Type="Self.PE_User" Multiplicity="1" />
+          <End Role="PE_UserLocation" Type="Self.PE_UserLocation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PE_User">
+              <PropertyRef Name="Id_User" />
+            </Principal>
+            <Dependent Role="PE_UserLocation">
+              <PropertyRef Name="Id_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Projects_Engineers" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="PE_CApplicationRole" EntityType="Self.PE_CApplicationRole" />
+          <EntitySet Name="PE_CCity" EntityType="Self.PE_CCity" />
+          <EntitySet Name="PE_CCountry" EntityType="Self.PE_CCountry" />
+          <EntitySet Name="PE_CDepartment" EntityType="Self.PE_CDepartment" />
+          <EntitySet Name="PE_CJobTitle" EntityType="Self.PE_CJobTitle" />
+          <EntitySet Name="PE_CState" EntityType="Self.PE_CState" />
+          <EntitySet Name="PE_User" EntityType="Self.PE_User" />
+          <EntitySet Name="PE_UserLocation" EntityType="Self.PE_UserLocation" />
+          <AssociationSet Name="CApplicationRole_User" Association="Self.CApplicationRole_User">
+            <End Role="PE_CApplicationRole" EntitySet="PE_CApplicationRole" />
+            <End Role="PE_User" EntitySet="PE_User" />
+          </AssociationSet>
+          <AssociationSet Name="City_UserLocation" Association="Self.City_UserLocation">
+            <End Role="PE_CCity" EntitySet="PE_CCity" />
+            <End Role="PE_UserLocation" EntitySet="PE_UserLocation" />
+          </AssociationSet>
+          <AssociationSet Name="State_City" Association="Self.State_City">
+            <End Role="PE_CState" EntitySet="PE_CState" />
+            <End Role="PE_CCity" EntitySet="PE_CCity" />
+          </AssociationSet>
+          <AssociationSet Name="Country_State" Association="Self.Country_State">
+            <End Role="PE_CCountry" EntitySet="PE_CCountry" />
+            <End Role="PE_CState" EntitySet="PE_CState" />
+          </AssociationSet>
+          <AssociationSet Name="CDepartment_User" Association="Self.CDepartment_User">
+            <End Role="PE_CDepartment" EntitySet="PE_CDepartment" />
+            <End Role="PE_User" EntitySet="PE_User" />
+          </AssociationSet>
+          <AssociationSet Name="CJobTitle_User" Association="Self.CJobTitle_User">
+            <End Role="PE_CJobTitle" EntitySet="PE_CJobTitle" />
+            <End Role="PE_User" EntitySet="PE_User" />
+          </AssociationSet>
+          <AssociationSet Name="User_UserLocation" Association="Self.User_UserLocation">
+            <End Role="PE_User" EntitySet="PE_User" />
+            <End Role="PE_UserLocation" EntitySet="PE_UserLocation" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Projects_Engineers_ModelStoreContainer" CdmEntityContainer="Projects_Engineers">
+          <EntitySetMapping Name="PE_CApplicationRole">
+            <EntityTypeMapping TypeName="Projects_Engineers_Model.PE_CApplicationRole">
+              <MappingFragment StoreEntitySet="PE_CApplicationRole">
+                <ScalarProperty Name="Id_ApplicationRole" ColumnName="Id_ApplicationRole" />
+                <ScalarProperty Name="ApplicationRole" ColumnName="ApplicationRole" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PE_CCity">
+            <EntityTypeMapping TypeName="Projects_Engineers_Model.PE_CCity">
+              <MappingFragment StoreEntitySet="PE_CCity">
+                <ScalarProperty Name="Id_City" ColumnName="Id_City" />
+                <ScalarProperty Name="Id_State" ColumnName="Id_State" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PE_CCountry">
+            <EntityTypeMapping TypeName="Projects_Engineers_Model.PE_CCountry">
+              <MappingFragment StoreEntitySet="PE_CCountry">
+                <ScalarProperty Name="Id_Country" ColumnName="Id_Country" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PE_CDepartment">
+            <EntityTypeMapping TypeName="Projects_Engineers_Model.PE_CDepartment">
+              <MappingFragment StoreEntitySet="PE_CDepartment">
+                <ScalarProperty Name="Id_Department" ColumnName="Id_Department" />
+                <ScalarProperty Name="Department" ColumnName="Department" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PE_CJobTitle">
+            <EntityTypeMapping TypeName="Projects_Engineers_Model.PE_CJobTitle">
+              <MappingFragment StoreEntitySet="PE_CJobTitle">
+                <ScalarProperty Name="Id_JobTitle" ColumnName="Id_JobTitle" />
+                <ScalarProperty Name="JobTitle" ColumnName="JobTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PE_CState">
+            <EntityTypeMapping TypeName="Projects_Engineers_Model.PE_CState">
+              <MappingFragment StoreEntitySet="PE_CState">
+                <ScalarProperty Name="Id_State" ColumnName="Id_State" />
+                <ScalarProperty Name="Id_Country" ColumnName="Id_Country" />
+                <ScalarProperty Name="State" ColumnName="State" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PE_User">
+            <EntityTypeMapping TypeName="Projects_Engineers_Model.PE_User">
+              <MappingFragment StoreEntitySet="PE_User">
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id_Honeywell" ColumnName="Id_Honeywell" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id_Department" ColumnName="Id_Department" />
+                <ScalarProperty Name="Id_JobTitle" ColumnName="Id_JobTitle" />
+                <ScalarProperty Name="Id_ApplicationRole" ColumnName="Id_ApplicationRole" />
+                <ScalarProperty Name="Id_ImmediateSuperior" ColumnName="Id_ImmediateSuperior" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PE_UserLocation">
+            <EntityTypeMapping TypeName="Projects_Engineers_Model.PE_UserLocation">
+              <MappingFragment StoreEntitySet="PE_UserLocation">
+                <ScalarProperty Name="Id_UserLocation" ColumnName="Id_UserLocation" />
+                <ScalarProperty Name="Id_User" ColumnName="Id_User" />
+                <ScalarProperty Name="Id_City" ColumnName="Id_City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

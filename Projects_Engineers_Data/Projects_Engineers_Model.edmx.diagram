@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b412cb718ce642e7838f8a64111be3d2" Name="Diagram1">
+        <EntityTypeShape EntityType="Projects_Engineers_Model.PE_CApplicationRole" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projects_Engineers_Model.PE_CCity" Width="1.5" PointX="3" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projects_Engineers_Model.PE_CCountry" Width="1.5" PointX="1.5" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projects_Engineers_Model.PE_CDepartment" Width="1.5" PointX="0.75" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projects_Engineers_Model.PE_CJobTitle" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projects_Engineers_Model.PE_CState" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projects_Engineers_Model.PE_User" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Projects_Engineers_Model.PE_UserLocation" Width="1.5" PointX="5.25" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="Projects_Engineers_Model.CApplicationRole_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Projects_Engineers_Model.City_UserLocation" ManuallyRouted="false" />
+        <AssociationConnector Association="Projects_Engineers_Model.State_City" ManuallyRouted="false" />
+        <AssociationConnector Association="Projects_Engineers_Model.Country_State" ManuallyRouted="false" />
+        <AssociationConnector Association="Projects_Engineers_Model.CDepartment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Projects_Engineers_Model.CJobTitle_User" ManuallyRouted="false" />
+        <AssociationConnector Association="Projects_Engineers_Model.User_UserLocation" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
