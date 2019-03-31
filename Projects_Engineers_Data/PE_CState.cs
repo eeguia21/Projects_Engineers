@@ -20,7 +20,7 @@ namespace Projects_Engineers_Data
             this.PE_CCity = new HashSet<PE_CCity>();
         }
     
-        public int Id_State { get; set; }
+        public int Id { get; set; }
         public int Id_Country { get; set; }
         public string State { get; set; }
     

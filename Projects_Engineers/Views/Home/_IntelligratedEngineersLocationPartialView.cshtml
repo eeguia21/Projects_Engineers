@@ -1,0 +1,5 @@
+@Html.DevExpress().PivotGrid(settings => {
+    settings.Name = "PivotGrid";
+    settings.CallbackRouteValues = new { Controller = "Home", Action = "IntelligratedEngineersLocationPartialView" };
+
+    }).Bind(Model).GetHtml()

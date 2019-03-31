@@ -17,9 +17,16 @@ namespace Projects_Engineers.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Users()
         {
-            ViewBag.Message = "Intelligrated Engineers";
+            ViewBag.Message = "Users";
+
+            return View();
+        }
+
+        public ActionResult EngineersLocation()
+        {
+            ViewBag.Message = "Engineers Location";
 
             return View();
         }
@@ -66,7 +73,7 @@ namespace Projects_Engineers.Controllers
             {
                 try
                 {
-                    var modelItem = model.FirstOrDefault(it => it.Id_User == item.Id_User);
+                    var modelItem = model.FirstOrDefault(it => it.Id == item.Id);
                     if (modelItem != null)
                     {
                         this.UpdateModel(modelItem);
@@ -83,14 +90,14 @@ namespace Projects_Engineers.Controllers
             return PartialView("_IntelligratedEngineersPartialView", model.ToList());
         }
         [HttpPost, ValidateInput(false)]
-        public ActionResult IntelligratedEngineersPartialViewDelete(System.Int32 Id_User)
+        public ActionResult IntelligratedEngineersPartialViewDelete(System.Int32 Id)
         {
             var model = db.PE_User;
-            if (Id_User >= 0)
+            if (Id >= 0)
             {
                 try
                 {
-                    var item = model.FirstOrDefault(it => it.Id_User == Id_User);
+                    var item = model.FirstOrDefault(it => it.Id == Id);
                     if (item != null)
                         model.Remove(item);
                     db.SaveChanges();
@@ -101,6 +108,13 @@ namespace Projects_Engineers.Controllers
                 }
             }
             return PartialView("_IntelligratedEngineersPartialView", model.ToList());
+        }
+
+        [ValidateInput(false)]
+        public ActionResult IntelligratedEngineersLocationPartialView()
+        {
+            var model = db.PE_User;
+            return PartialView("_IntelligratedEngineersLocationPartialView", model.ToList());
         }
     }
 }

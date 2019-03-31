@@ -17,6 +17,14 @@
         new Script { ExtensionSuite = ExtensionSuite.GridView }
     )
 
+    @Html.DevExpress().GetStyleSheets(
+        new StyleSheet { ExtensionSuite = ExtensionSuite.PivotGrid }
+    )
+    @Html.DevExpress().GetScripts(
+        new Script { ExtensionSuite = ExtensionSuite.PivotGrid }
+    )
+
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -34,8 +42,8 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Users", "Users", "Home")</li>
+                    <li>@Html.ActionLink("EngineersLocation", "EngineersLocation", "Home")</li>
                 </ul>
             </div>
         </div>

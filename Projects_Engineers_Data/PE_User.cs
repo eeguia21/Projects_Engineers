@@ -20,7 +20,7 @@ namespace Projects_Engineers_Data
             this.PE_UserLocation = new HashSet<PE_UserLocation>();
         }
     
-        public int Id_User { get; set; }
+        public int Id { get; set; }
         public string Id_Honeywell { get; set; }
         public string Name { get; set; }
         public Nullable<int> Id_Department { get; set; }

@@ -50,30 +50,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="DataAccessSQL.cs" />
+    <Compile Include="Contracts\IDataAccess.cs" />
     <Compile Include="PE_CApplicationRole.cs">
       <DependentUpon>Projects_Engineers_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PE_CApplicationRole_PV.cs" />
     <Compile Include="PE_CCity.cs">
       <DependentUpon>Projects_Engineers_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PE_CCity_PV.cs" />
     <Compile Include="PE_CCountry.cs">
       <DependentUpon>Projects_Engineers_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PE_CCountry_PV.cs" />
     <Compile Include="PE_CDepartment.cs">
       <DependentUpon>Projects_Engineers_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PE_CDepartment_PV.cs" />
     <Compile Include="PE_CJobTitle.cs">
       <DependentUpon>Projects_Engineers_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PE_CJobTitle_PV.cs" />
     <Compile Include="PE_CState.cs">
       <DependentUpon>Projects_Engineers_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PE_CState_PV.cs" />
     <Compile Include="PE_User.cs">
       <DependentUpon>Projects_Engineers_Model.tt</DependentUpon>
     </Compile>
     <Compile Include="PE_UserLocation.cs">
       <DependentUpon>Projects_Engineers_Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="PE_UserLocation_PV.cs" />
+    <Compile Include="PE_User_PV.cs" />
     <Compile Include="Projects_Engineers_Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -92,23 +103,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="packages.config" />
     <EntityDeploy Include="Projects_Engineers_Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Projects_Engineers_Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <None Include="packages.config" />
     <None Include="Projects_Engineers_Model.edmx.diagram">
       <DependentUpon>Projects_Engineers_Model.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Projects_Engineers_Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Projects_Engineers_Model.Context.cs</LastGenOutput>
       <DependentUpon>Projects_Engineers_Model.edmx</DependentUpon>
+      <LastGenOutput>Projects_Engineers_Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Projects_Engineers_Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -116,8 +128,6 @@
       <LastGenOutput>Projects_Engineers_Model.cs</LastGenOutput>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

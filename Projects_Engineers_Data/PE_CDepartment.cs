@@ -20,7 +20,7 @@ namespace Projects_Engineers_Data
             this.PE_User = new HashSet<PE_User>();
         }
     
-        public int Id_Department { get; set; }
+        public int Id { get; set; }
         public string Department { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -20,7 +20,7 @@ namespace Projects_Engineers_Data
             this.PE_UserLocation = new HashSet<PE_UserLocation>();
         }
     
-        public int Id_City { get; set; }
+        public int Id { get; set; }
         public Nullable<int> Id_State { get; set; }
         public string City { get; set; }
         public decimal Latitude { get; set; }

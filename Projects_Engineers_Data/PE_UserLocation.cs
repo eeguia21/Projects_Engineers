@@ -14,7 +14,7 @@ namespace Projects_Engineers_Data
     
     public partial class PE_UserLocation
     {
-        public int Id_UserLocation { get; set; }
+        public int Id { get; set; }
         public int Id_User { get; set; }
         public int Id_City { get; set; }
     

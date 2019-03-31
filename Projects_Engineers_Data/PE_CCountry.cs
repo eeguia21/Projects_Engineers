@@ -20,7 +20,7 @@ namespace Projects_Engineers_Data
             this.PE_CState = new HashSet<PE_CState>();
         }
     
-        public int Id_Country { get; set; }
+        public int Id { get; set; }
         public string Country { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
