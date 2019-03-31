@@ -36,7 +36,6 @@ namespace Projects_Engineers_Data
                 dbSet.Attach(t);
 
             dbSet.Remove(t);
-
         }
 
         public T Find(int Id)

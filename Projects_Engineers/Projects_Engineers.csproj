@@ -64,12 +64,33 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -87,35 +108,23 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.4.1.1\lib\net46\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.10.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.10.0\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc, Version=5.10.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc.5.10.0\lib\net46\Unity.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -141,13 +150,258 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Antlr3.Runtime.dll" />
+    <Content Include="bin\Antlr3.Runtime.pdb" />
+    <Content Include="bin\DevExpress.Charts.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.CodeParser.v18.2.dll" />
+    <Content Include="bin\DevExpress.Data.v18.2.dll" />
+    <Content Include="bin\DevExpress.Data.v18.2.xml" />
+    <Content Include="bin\DevExpress.DataAccess.v18.2.dll" />
+    <Content Include="bin\DevExpress.DataAccess.v18.2.xml" />
+    <Content Include="bin\DevExpress.Images.v18.2.dll" />
+    <Content Include="bin\DevExpress.Office.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.Office.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.Pdf.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.Pdf.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.PivotGrid.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.PivotGrid.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.Printing.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.Printing.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.RichEdit.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.RichEdit.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.RichEdit.v18.2.Export.dll" />
+    <Content Include="bin\DevExpress.Sparkline.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.Sparkline.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.SpellChecker.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.SpellChecker.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.Spreadsheet.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.Spreadsheet.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.Web.ASPxHtmlEditor.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.ASPxHtmlEditor.v18.2.xml" />
+    <Content Include="bin\DevExpress.Web.ASPxPivotGrid.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.ASPxPivotGrid.v18.2.xml" />
+    <Content Include="bin\DevExpress.Web.ASPxRichEdit.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.ASPxRichEdit.v18.2.xml" />
+    <Content Include="bin\DevExpress.Web.ASPxScheduler.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.ASPxScheduler.v18.2.xml" />
+    <Content Include="bin\DevExpress.Web.ASPxSpellChecker.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.ASPxSpellChecker.v18.2.xml" />
+    <Content Include="bin\DevExpress.Web.ASPxSpreadsheet.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.ASPxSpreadsheet.v18.2.xml" />
+    <Content Include="bin\DevExpress.Web.ASPxThemes.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.ASPxTreeList.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.ASPxTreeList.v18.2.xml" />
+    <Content Include="bin\DevExpress.Web.Mvc5.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.Mvc5.v18.2.xml" />
+    <Content Include="bin\DevExpress.Web.Resources.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.v18.2.dll" />
+    <Content Include="bin\DevExpress.Web.v18.2.xml" />
+    <Content Include="bin\DevExpress.Xpo.v18.2.dll" />
+    <Content Include="bin\DevExpress.Xpo.v18.2.xml" />
+    <Content Include="bin\DevExpress.XtraCharts.v18.2.dll" />
+    <Content Include="bin\DevExpress.XtraCharts.v18.2.Web.dll" />
+    <Content Include="bin\DevExpress.XtraCharts.v18.2.Web.xml" />
+    <Content Include="bin\DevExpress.XtraCharts.v18.2.xml" />
+    <Content Include="bin\DevExpress.XtraGauges.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.XtraGauges.v18.2.Core.xml" />
+    <Content Include="bin\DevExpress.XtraReports.v18.2.dll" />
+    <Content Include="bin\DevExpress.XtraReports.v18.2.Web.dll" />
+    <Content Include="bin\DevExpress.XtraReports.v18.2.Web.WebForms.dll" />
+    <Content Include="bin\DevExpress.XtraReports.v18.2.Web.WebForms.xml" />
+    <Content Include="bin\DevExpress.XtraReports.v18.2.Web.xml" />
+    <Content Include="bin\DevExpress.XtraReports.v18.2.xml" />
+    <Content Include="bin\DevExpress.XtraScheduler.v18.2.Core.dll" />
+    <Content Include="bin\DevExpress.XtraScheduler.v18.2.Core.xml" />
+    <Content Include="bin\de\DevExpress.Data.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.DataAccess.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Office.v18.2.Core.resources.dll" />
+    <Content Include="bin\de\DevExpress.Pdf.v18.2.Core.resources.dll" />
+    <Content Include="bin\de\DevExpress.PivotGrid.v18.2.Core.resources.dll" />
+    <Content Include="bin\de\DevExpress.Printing.v18.2.Core.resources.dll" />
+    <Content Include="bin\de\DevExpress.RichEdit.v18.2.Core.resources.dll" />
+    <Content Include="bin\de\DevExpress.Sparkline.v18.2.Core.resources.dll" />
+    <Content Include="bin\de\DevExpress.Spreadsheet.v18.2.Core.resources.dll" />
+    <Content Include="bin\de\DevExpress.Web.ASPxHtmlEditor.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Web.ASPxRichEdit.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Web.ASPxScheduler.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Web.ASPxSpellChecker.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Web.ASPxSpreadsheet.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Web.ASPxTreeList.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Web.Resources.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Web.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.Xpo.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.XtraCharts.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.XtraGauges.v18.2.Core.resources.dll" />
+    <Content Include="bin\de\DevExpress.XtraReports.v18.2.resources.dll" />
+    <Content Include="bin\de\DevExpress.XtraReports.v18.2.Web.resources.dll" />
+    <Content Include="bin\de\DevExpress.XtraScheduler.v18.2.Core.resources.dll" />
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\es\DevExpress.Data.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.DataAccess.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Office.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\DevExpress.Pdf.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\DevExpress.PivotGrid.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\DevExpress.Printing.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\DevExpress.RichEdit.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\DevExpress.Sparkline.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\DevExpress.Spreadsheet.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\DevExpress.Web.ASPxHtmlEditor.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Web.ASPxRichEdit.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Web.ASPxScheduler.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Web.ASPxSpellChecker.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Web.ASPxSpreadsheet.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Web.ASPxTreeList.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Web.Resources.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Web.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.Xpo.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.XtraCharts.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.XtraGauges.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\DevExpress.XtraReports.v18.2.resources.dll" />
+    <Content Include="bin\es\DevExpress.XtraReports.v18.2.Web.resources.dll" />
+    <Content Include="bin\es\DevExpress.XtraScheduler.v18.2.Core.resources.dll" />
+    <Content Include="bin\es\System.Web.Helpers.resources.dll" />
+    <Content Include="bin\es\System.Web.Mvc.resources.dll" />
+    <Content Include="bin\es\System.Web.Optimization.resources.dll" />
+    <Content Include="bin\es\System.Web.Razor.resources.dll" />
+    <Content Include="bin\es\System.Web.WebPages.Deployment.resources.dll" />
+    <Content Include="bin\es\System.Web.WebPages.Razor.resources.dll" />
+    <Content Include="bin\es\System.Web.WebPages.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Data.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.DataAccess.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Office.v18.2.Core.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Pdf.v18.2.Core.resources.dll" />
+    <Content Include="bin\ja\DevExpress.PivotGrid.v18.2.Core.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Printing.v18.2.Core.resources.dll" />
+    <Content Include="bin\ja\DevExpress.RichEdit.v18.2.Core.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Sparkline.v18.2.Core.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Spreadsheet.v18.2.Core.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Web.ASPxHtmlEditor.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Web.ASPxRichEdit.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Web.ASPxScheduler.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Web.ASPxSpellChecker.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Web.ASPxSpreadsheet.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Web.ASPxTreeList.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Web.Resources.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Web.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.Xpo.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.XtraCharts.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.XtraGauges.v18.2.Core.resources.dll" />
+    <Content Include="bin\ja\DevExpress.XtraReports.v18.2.resources.dll" />
+    <Content Include="bin\ja\DevExpress.XtraReports.v18.2.Web.resources.dll" />
+    <Content Include="bin\ja\DevExpress.XtraScheduler.v18.2.Core.resources.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.dll" />
+    <Content Include="bin\Microsoft.AspNet.TelemetryCorrelation.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Microsoft.Web.Infrastructure.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Projects_Engineers.dll" />
+    <Content Include="bin\Projects_Engineers.pdb" />
+    <Content Include="bin\Projects_Engineers_BusinessRule.dll" />
+    <Content Include="bin\Projects_Engineers_BusinessRule.pdb" />
+    <Content Include="bin\Projects_Engineers_Data.dll" />
+    <Content Include="bin\Projects_Engineers_Data.pdb" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\ru\DevExpress.Data.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.DataAccess.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Office.v18.2.Core.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Pdf.v18.2.Core.resources.dll" />
+    <Content Include="bin\ru\DevExpress.PivotGrid.v18.2.Core.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Printing.v18.2.Core.resources.dll" />
+    <Content Include="bin\ru\DevExpress.RichEdit.v18.2.Core.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Sparkline.v18.2.Core.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Spreadsheet.v18.2.Core.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Web.ASPxHtmlEditor.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Web.ASPxRichEdit.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Web.ASPxScheduler.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Web.ASPxSpellChecker.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Web.ASPxSpreadsheet.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Web.ASPxTreeList.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Web.Resources.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Web.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.Xpo.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.XtraCharts.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.XtraGauges.v18.2.Core.resources.dll" />
+    <Content Include="bin\ru\DevExpress.XtraReports.v18.2.resources.dll" />
+    <Content Include="bin\ru\DevExpress.XtraReports.v18.2.Web.resources.dll" />
+    <Content Include="bin\ru\DevExpress.XtraScheduler.v18.2.Core.resources.dll" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\System.Web.Helpers.dll" />
+    <Content Include="bin\System.Web.Helpers.xml" />
+    <Content Include="bin\System.Web.Mvc.dll" />
+    <Content Include="bin\System.Web.Mvc.xml" />
+    <Content Include="bin\System.Web.Optimization.dll" />
+    <Content Include="bin\System.Web.Optimization.xml" />
+    <Content Include="bin\System.Web.Razor.dll" />
+    <Content Include="bin\System.Web.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.Deployment.dll" />
+    <Content Include="bin\System.Web.WebPages.Deployment.xml" />
+    <Content Include="bin\System.Web.WebPages.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.dll" />
+    <Content Include="bin\System.Web.WebPages.Razor.xml" />
+    <Content Include="bin\System.Web.WebPages.xml" />
+    <Content Include="bin\Unity.Abstractions.dll" />
+    <Content Include="bin\Unity.Abstractions.pdb" />
+    <Content Include="bin\Unity.Container.dll" />
+    <Content Include="bin\Unity.Container.pdb" />
+    <Content Include="bin\Unity.Mvc.dll" />
+    <Content Include="bin\Unity.Mvc.pdb" />
+    <Content Include="bin\WebActivatorEx.dll" />
+    <Content Include="bin\WebGrease.dll" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -156,8 +410,31 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="obj\Debug\Projects_Engineers.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Projects_Engineers.dll" />
+    <Content Include="obj\Debug\Projects_Engineers.pdb" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="bin\Projects_Engineers.dll.config" />
+    <Content Include="bin\Projects_Engineers_BusinessRule.dll.config" />
+    <Content Include="bin\Projects_Engineers_Data.dll.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.Managed.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\Projects_Engineers.csproj.CopyComplete" />
+    <Content Include="obj\Debug\Projects_Engineers.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\Projects_Engineers.csprojAssemblyReference.cache" />
+    <Content Include="obj\Release\Projects_Engineers.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Release\Projects_Engineers.csprojAssemblyReference.cache" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -169,6 +446,8 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Views\Home\EngineersLocation.cshtml" />
+    <Content Include="Views\Home\_IntelligratedEngineersLocationPartialView.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -184,12 +463,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\_IntelligratedEngineersPartialView.cshtml" />
-    <Content Include="Views\Home\EngineersLocation.cshtml" />
-    <Content Include="Views\Home\_IntelligratedEngineersLocationPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="obj\Debug\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

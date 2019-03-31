@@ -4,13 +4,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Projects_Engineers_BusinessRule;
+using Projects_Engineers_Data;
 
 namespace Projects_Engineers.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DataAccessSQL<PE_User> contextUser;
+        private UserManager obj;
+        private Projects_Engineers_Data.Projects_Engineers db = new Projects_Engineers_Data.Projects_Engineers();
 
-        Projects_Engineers_Data.Projects_Engineers db = new Projects_Engineers_Data.Projects_Engineers();
+        public HomeController()
+        {
+            contextUser = new DataAccessSQL<PE_User>(new Projects_Engineers_Data.Projects_Engineers());
+            obj = new UserManager(contextUser);
+        }
 
         public ActionResult Index()
         {
@@ -41,7 +50,8 @@ namespace Projects_Engineers.Controllers
         [ValidateInput(false)]
         public ActionResult IntelligratedEngineersPartialView()
         {
-            var model = db.PE_User;
+            //var model = db.PE_User;
+            var model = obj.readUsers();
             return PartialView("_IntelligratedEngineersPartialView", model.ToList());
         }
 
@@ -65,6 +75,7 @@ namespace Projects_Engineers.Controllers
                 ViewData["EditError"] = "Please, correct all errors.";
             return PartialView("_IntelligratedEngineersPartialView", model.ToList());
         }
+
         [HttpPost, ValidateInput(false)]
         public ActionResult IntelligratedEngineersPartialViewUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Projects_Engineers_Data.PE_User item)
         {
@@ -89,6 +100,7 @@ namespace Projects_Engineers.Controllers
                 ViewData["EditError"] = "Please, correct all errors.";
             return PartialView("_IntelligratedEngineersPartialView", model.ToList());
         }
+
         [HttpPost, ValidateInput(false)]
         public ActionResult IntelligratedEngineersPartialViewDelete(System.Int32 Id)
         {
@@ -113,7 +125,8 @@ namespace Projects_Engineers.Controllers
         [ValidateInput(false)]
         public ActionResult IntelligratedEngineersLocationPartialView()
         {
-            var model = db.PE_User;
+            //var model = db.PE_User;
+            var model = obj.readUsers();
             return PartialView("_IntelligratedEngineersLocationPartialView", model.ToList());
         }
     }
