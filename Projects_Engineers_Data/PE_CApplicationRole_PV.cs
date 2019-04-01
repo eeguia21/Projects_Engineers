@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Projects_Engineers_Data.PartialClasses
+namespace Projects_Engineers_Data
 {
     public partial class PE_CApplicationRole : BaseEntity
     {

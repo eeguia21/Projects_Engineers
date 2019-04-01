@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApplicationRoleManager.cs" />
+    <Compile Include="CityManager.cs" />
+    <Compile Include="CountryManager.cs" />
+    <Compile Include="DepartmentManager.cs" />
+    <Compile Include="JobTitleManager.cs" />
+    <Compile Include="StateManager.cs" />
     <Compile Include="UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
