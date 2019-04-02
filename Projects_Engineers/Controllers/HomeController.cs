@@ -91,6 +91,31 @@ namespace Projects_Engineers.Controllers
         [ValidateInput(false)]
         public ActionResult IntelligratedEngineersPartialView()
         {
+            PE_User usr = objUM.readUser(8);
+            string password = "";
+            string passwordConfirmation = "";
+
+            objUM.deleteUser(79);
+
+            PE_User usrNew = new PE_User()
+            {
+                Id_Honeywell = "H300657",
+                Name = "Alfaro, Obed Abraham",
+                Id_Department = 1,
+                Id_JobTitle = 4,
+                Id_ApplicationRole = 2,
+                Id_ImmediateSuperior = 53,
+                Mobile = "5579093092",
+                Email = "obed.alfaro@honeywell.com"
+            };
+            password = "obed.alfaro@honeywell.com";
+            passwordConfirmation = "obed.alfaro@honeywell.com";
+            if (password.Equals(passwordConfirmation))
+                objUM.addUser(usrNew, password);
+
+            usrNew.Mobile = "5567762533";
+            objUM.updateUser(usrNew);
+
             var model = objUM.readUsers();
             return PartialView("_IntelligratedEngineersPartialView", model.ToList());
         }

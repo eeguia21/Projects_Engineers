@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Projects_Engineers_Data;
+using Utilities;
 
 namespace Projects_Engineers_BusinessRule
 {
     public class UserManager
     {
         IDataAccess<PE_User> contextUser;
+        UtilitiesManager objUtilities = new UtilitiesManager();
 
         public UserManager(IDataAccess<PE_User> contextUser)
         {
@@ -21,48 +23,45 @@ namespace Projects_Engineers_BusinessRule
             List<PE_User> users = contextUser.Collection().ToList();
 
             return users;
-
-            //PE_User nuq = new PE_User();
-
-            //PE_User num = new PE_User();
-
-            //Query syntax
-
-            //var usrsq = from usr in db.PE_User select usr;
-
-            //foreach (var uq in usrsq)
-            //{
-            //    nuq.Name = uq.Name;
-            //    nuq.Email = uq.Email;
-            //    nuq.Mobile = uq.Mobile;
-            //}
-
-            //Method syntax
-
-            //var usrsm = db.PE_User;
-
-            //foreach (var um in usrsm)
-            //{
-            //    num.Name = um.Name;
-            //    num.Email = um.Email;
-            //    num.Mobile = um.Mobile;
-            //}
-
         }
 
-        public void addUsers()
+        public PE_User readUser(int Id)
         {
+            PE_User usr = contextUser.Find(Id);
 
+            return usr;
         }
 
-        public void deleteUsers()
+        public PE_User readUserCredentials(string email, string password)
         {
+            PE_User usr = (from user in contextUser.Collection().Where(x => x.Email.Equals(email) && x.Password.Equals(objUtilities.encryptPassword(password)))
+                           select user).FirstOrDefault();
 
+            return usr;
         }
 
-        public void updateUsers()
+        public void addUser(PE_User usr, string password)
         {
+            usr.Password = objUtilities.encryptPassword(password);
+            contextUser.Insert(usr);
+            contextUser.Commit();
+        }
 
+        public void deleteUser(int Id)
+        {
+            PE_User usr = contextUser.Find(Id);
+
+            if (usr != null)
+            {
+                contextUser.Delete(usr.Id);
+                contextUser.Commit();
+            }
+        }
+
+        public void updateUser(PE_User usr)
+        {
+            contextUser.Update(usr);
+            contextUser.Commit();
         }
     }
 }
