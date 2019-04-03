@@ -95,21 +95,21 @@ namespace Projects_Engineers.Controllers
             string password = "";
             string passwordConfirmation = "";
 
-            objUM.deleteUser(81);
+            objUM.deleteUser(82);
 
             PE_User usrNew = new PE_User()
             {
-                Id_Honeywell = "H300657",
-                Name = "Alfaro, Obed Abraham",
+                Id_Honeywell = "H293576",
+                Name = "Eguia, Edgar ",
                 Id_Department = 1,
                 Id_JobTitle = 4,
-                Id_ApplicationRole = 2,
+                Id_ApplicationRole = 1,
                 Id_ImmediateSuperior = 53,
                 Mobile = "00000000",
-                Email = "obed.alfaro@honeywell.com"
+                Email = "edgar.eguiacalcaneo@honeywell.com"
             };
-            password = "obed.alfaro@honeywell.com";
-            passwordConfirmation = "obed.alfaro@honeywell.com";
+            password = "edgar.eguiacalcaneo@honeywell.com";
+            passwordConfirmation = "edgar.eguiacalcaneo@honeywell.com";
             if (password.Equals(passwordConfirmation))
                 objUM.addUser(usrNew, password);
 
