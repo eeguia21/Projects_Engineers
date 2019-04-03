@@ -54,6 +54,7 @@
     <Compile Include="DepartmentManager.cs" />
     <Compile Include="JobTitleManager.cs" />
     <Compile Include="StateManager.cs" />
+    <Compile Include="UserLocationManager.cs" />
     <Compile Include="UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

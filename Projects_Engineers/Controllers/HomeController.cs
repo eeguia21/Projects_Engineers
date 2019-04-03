@@ -95,7 +95,7 @@ namespace Projects_Engineers.Controllers
             string password = "";
             string passwordConfirmation = "";
 
-            objUM.deleteUser(79);
+            objUM.deleteUser(81);
 
             PE_User usrNew = new PE_User()
             {
@@ -105,7 +105,7 @@ namespace Projects_Engineers.Controllers
                 Id_JobTitle = 4,
                 Id_ApplicationRole = 2,
                 Id_ImmediateSuperior = 53,
-                Mobile = "5579093092",
+                Mobile = "00000000",
                 Email = "obed.alfaro@honeywell.com"
             };
             password = "obed.alfaro@honeywell.com";

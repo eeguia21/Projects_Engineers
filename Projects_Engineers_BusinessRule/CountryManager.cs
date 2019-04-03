@@ -22,5 +22,30 @@ namespace Projects_Engineers_BusinessRule
 
             return countries;
         }
+
+        public PE_CCountry readCountry(int Id)
+        {
+            PE_CCountry country = contextCountry.Find(Id);
+
+            return country;
+        }
+
+        public void addCountry(PE_CCountry country)
+        {
+            contextCountry.Insert(country);
+            contextCountry.Commit();
+        }
+
+        public void deleteCountry(int Id)
+        {
+            contextCountry.Delete(Id);
+            contextCountry.Commit();
+        }
+
+        public void updateCountry(PE_CCountry country)
+        {
+            contextCountry.Update(country);
+            contextCountry.Commit();
+        }
     }
 }

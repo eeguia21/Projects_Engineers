@@ -22,5 +22,30 @@ namespace Projects_Engineers_BusinessRule
 
             return applicationRoles;
         }
+
+        public PE_CApplicationRole readApplicationRole(int Id)
+        {
+            PE_CApplicationRole appRole = contextApplicationRole.Find(Id);
+
+            return appRole;
+        }
+
+        public void addApplicationRole(PE_CApplicationRole appRole)
+        {
+            contextApplicationRole.Insert(appRole);
+            contextApplicationRole.Commit();
+        }
+
+        public void deleteApplicationRole(int Id)
+        {
+            contextApplicationRole.Delete(Id);
+            contextApplicationRole.Commit();
+        }
+
+        public void updateApplicationRole(PE_CApplicationRole appRole)
+        {
+            contextApplicationRole.Update(appRole);
+            contextApplicationRole.Commit();
+        }
     }
 }

@@ -101,7 +101,6 @@
       <DependentUpon>Projects_Engineers_Model.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserLocationManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />

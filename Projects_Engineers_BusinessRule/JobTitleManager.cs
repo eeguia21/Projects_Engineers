@@ -22,5 +22,30 @@ namespace Projects_Engineers_BusinessRule
 
             return jobTitles;
         }
+
+        public PE_CJobTitle readJobTitle(int Id)
+        {
+            PE_CJobTitle jobTitle = contextJobTitle.Find(Id);
+
+            return jobTitle;
+        }
+
+        public void addJobTitle(PE_CJobTitle jobTitle)
+        {
+            contextJobTitle.Insert(jobTitle);
+            contextJobTitle.Commit();
+        }
+
+        public void deleteJobTitle(int Id)
+        {
+            contextJobTitle.Delete(Id);
+            contextJobTitle.Commit();
+        }
+
+        public void updateJobTitle(PE_CJobTitle jobTitle)
+        {
+            contextJobTitle.Update(jobTitle);
+            contextJobTitle.Commit();
+        }
     }
 }
