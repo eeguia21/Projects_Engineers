@@ -122,73 +122,6 @@ namespace Projects_Engineers.Controllers
             return PartialView("_IntelligratedEngineersPartialView", model.ToList());
         }
 
-        //[HttpPost, ValidateInput(false)]
-        //public ActionResult IntelligratedEngineersPartialViewAddNew([ModelBinder(typeof(DevExpressEditorsBinder))] Projects_Engineers_Data.PE_User item)
-        //{
-        //    var model = db.PE_User;
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            model.Add(item);
-        //            db.SaveChanges();
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            ViewData["EditError"] = e.Message;
-        //        }
-        //    }
-        //    else
-        //        ViewData["EditError"] = "Please, correct all errors.";
-        //    return PartialView("_IntelligratedEngineersPartialView", model.ToList());
-        //}
-
-        //[HttpPost, ValidateInput(false)]
-        //public ActionResult IntelligratedEngineersPartialViewUpdate([ModelBinder(typeof(DevExpressEditorsBinder))] Projects_Engineers_Data.PE_User item)
-        //{
-        //    var model = db.PE_User;
-        //    if (ModelState.IsValid)
-        //    {
-        //        try
-        //        {
-        //            var modelItem = model.FirstOrDefault(it => it.Id == item.Id);
-        //            if (modelItem != null)
-        //            {
-        //                this.UpdateModel(modelItem);
-        //                db.SaveChanges();
-        //            }
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            ViewData["EditError"] = e.Message;
-        //        }
-        //    }
-        //    else
-        //        ViewData["EditError"] = "Please, correct all errors.";
-        //    return PartialView("_IntelligratedEngineersPartialView", model.ToList());
-        //}
-
-        //[HttpPost, ValidateInput(false)]
-        //public ActionResult IntelligratedEngineersPartialViewDelete(System.Int32 Id)
-        //{
-        //    var model = db.PE_User;
-        //    if (Id >= 0)
-        //    {
-        //        try
-        //        {
-        //            var item = model.FirstOrDefault(it => it.Id == Id);
-        //            if (item != null)
-        //                model.Remove(item);
-        //            db.SaveChanges();
-        //        }
-        //        catch (Exception e)
-        //        {
-        //            ViewData["EditError"] = e.Message;
-        //        }
-        //    }
-        //    return PartialView("_IntelligratedEngineersPartialView", model.ToList());
-        //}
-
         [ValidateInput(false)]
         public ActionResult IntelligratedEngineersLocationPartialView()
         {
@@ -219,27 +152,6 @@ namespace Projects_Engineers.Controllers
 
             feed = new SyndicationFeed(siteTitle, description, new Uri(siteUrl));
             feed.Items = items;
-
-            //using (MyDatabaseEntities dc = new MyDatabaseEntities())
-            //{
-            //    List<SyndicationItem> items = new List<SyndicationItem>();
-            //    Last 10 Post
-            //    var c = dc.MyPosts.OrderByDescending(a => a.PostID).Take(10).ToList();
-            //    foreach (var i in c)
-            //    {
-            //        SyndicationItem item = new SyndicationItem
-            //        {
-            //            Title = new TextSyndicationContent(i.Title),
-            //            Content = new TextSyndicationContent(GetPlainText(i.Content, 200)), //here content may be Html content so we should use plain text
-            //            PublishDate = i.PublishDate
-            //        };
-            //        item.Links.Add(new SyndicationLink(new Uri(Request.Url.Scheme + "://" + Request.Url.Host + i.LiveURL)));
-            //        items.Add(item);
-            //    }
-
-            //    feed = new SyndicationFeed(siteTitle, description, new Uri(siteUrl));
-            //    feed.Items = items;
-            //}
 
             return new RssResult { feedData = feed };
         }
