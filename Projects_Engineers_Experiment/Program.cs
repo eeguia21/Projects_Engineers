@@ -32,7 +32,7 @@ namespace Projects_Engineers_Experiment
             catch
             {
             }
-       }
+        }
 
         private static void getDataState(CancellationToken cancelToken)
         {
@@ -49,7 +49,7 @@ namespace Projects_Engineers_Experiment
                 {
                     cancelToken.ThrowIfCancellationRequested();
                     Console.WriteLine(state.State);
-                    Thread.Sleep(1000);
+                    Thread.Sleep(100);
                 }
             }
             catch
@@ -74,10 +74,44 @@ namespace Projects_Engineers_Experiment
             Action actionS = () => getDataState(tokenS);
             Task.Factory.StartNew(actionS, tokenS);
 
-            Console.ReadKey();
-            objCTSU.Cancel();
-            Console.ReadKey();
-            objCTSS.Cancel();
+            ConsoleKeyInfo resultU = Console.ReadKey();
+            if (resultU.KeyChar == 'U')
+            {
+                objCTSU.Cancel();
+            }
+            ConsoleKeyInfo resultS = Console.ReadKey();
+            if (resultS.KeyChar == 'S')
+            {
+                objCTSS.Cancel();
+            }
+
+            CancellationTokenSource objCT = new CancellationTokenSource();
+            CancellationToken token = objCT.Token;
+
+            int val = -1;
+
+            token.Register(() => { Console.WriteLine($"Cancellation on task {val}"); });
+
+            Action actionUs = () => getDataUsr(token);
+            Task t1 = new Task(actionUs, token);
+            t1.Start();
+
+            Action actionSt = () => getDataState(token);
+            Task t2 = new Task(actionSt, token);
+            t2.Start();
+
+            try
+            {
+                val = Task.WaitAny(new[] { t1, t2 }, token);
+            }
+            catch
+            {
+            }
+
+            if (val != -1)
+            {
+                objCT.Cancel();
+            }
 
             Console.WriteLine("ENDING TEST");
             Console.ReadKey();
