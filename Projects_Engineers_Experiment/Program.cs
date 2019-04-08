@@ -103,15 +103,17 @@ namespace Projects_Engineers_Experiment
             try
             {
                 val = Task.WaitAny(new[] { t1, t2 }, token);
+                if (val != -1)
+                {
+                    objCT.Cancel();
+                }
             }
             catch
             {
             }
 
-            if (val != -1)
-            {
-                objCT.Cancel();
-            }
+            Console.WriteLine($"Task 1 {t1.Status}");
+            Console.WriteLine($"Task 2 {t2.Status}");
 
             Console.WriteLine("ENDING TEST");
             Console.ReadKey();
