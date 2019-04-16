@@ -133,12 +133,21 @@ namespace Projects_Engineers.Controllers
 
         public ActionResult RssFeed()
         {
-            var feedData = (from usr in objUM.readUsers()
-                            select new PE_User
-                            {
-                                Id_Honeywell = usr.Id_Honeywell,
-                                Name = usr.Name
-                            });
+            //var feedData = (from usr in objUM.readUsers()
+            //                select new PE_User
+            //                {
+            //                    Id_Honeywell = usr.Id_Honeywell,
+            //                    Name = usr.Name
+            //                });
+
+            //var custQuery2 =
+            //                (from cust in db.Customers
+            //                 orderby cust.ContactName
+            //                 select cust)
+            //                .Skip(50).Take(10);
+
+            var feedData = (from usr in objUM.readUsers() orderby usr.Name select usr).Skip(10).Take(10);
+
             ViewBag.RSSFeed = feedData.ToList();
             return View();
         }

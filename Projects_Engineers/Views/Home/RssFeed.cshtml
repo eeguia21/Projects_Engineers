@@ -4,27 +4,24 @@
     ViewBag.Title = "Feed";
 }
 <br />
-<h2>RSS Feed Reader</h2>
+<h2>Honeywell Intelligrated</h2>
 <hr />
 <br />
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Id Honeywell</th>
-            <th>Name</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (ViewBag.RSSFeed != null)
-        {
-            foreach (var usr in ((List<PE_User>)ViewBag.RSSFeed).Take(10).OrderBy(x => x.Name))
+<div style="height:200px;overflow:auto;">
+
+    <table class="table table-hover">
+        <tbody>
+            @if (ViewBag.RSSFeed != null)
             {
-                <tr>
-                    <td>@usr.Id_Honeywell</td>
-                    <td>@usr.Name</td>
-                </tr>
+                foreach (var usr in ((List<PE_User>)ViewBag.RSSFeed).Take(10).OrderBy(x => x.Name))
+                {
+                    <tr>
+                        <td>User <b>@usr.Name</b> added new user <b>@usr.Name</b></td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>  
+        </tbody>
+    </table>
+
+</div>
