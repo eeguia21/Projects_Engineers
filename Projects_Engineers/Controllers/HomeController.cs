@@ -8,6 +8,8 @@ using Projects_Engineers_BusinessRule;
 using Projects_Engineers_Data;
 using System.ServiceModel.Syndication;
 using System.Text.RegularExpressions;
+using System.Net;
+using System.Xml.Linq;
 
 namespace Projects_Engineers.Controllers
 {
@@ -131,37 +133,14 @@ namespace Projects_Engineers.Controllers
 
         public ActionResult RssFeed()
         {
-            SyndicationFeed feed = null;
-            string siteTitle, description, siteUrl;
-            siteTitle = "Dotnet Awesome";
-            siteUrl = "http://dotnetawesome.com";
-            description = "Welcome to the dotnetawesome.com! We are providing step by step tutorial of ASP.NET Web Forms, ASP.NET MVC, Jquery in ASP.NET and about lots of control available in asp.net framework &amp; topic  like GridView, webgrid, mvc4, DropDownList, AJAX, Microsoft, Reports, .rdlc,    mvc, DetailsView, winforms, windows forms, windows application, code, .net code, examples, WCF, tutorial, WebService, LINQ and more. This is the best site for beginners as well as for advanced learner.";
-
-            List<SyndicationItem> items = new List<SyndicationItem>();
-            List<PE_User> users = objUM.readUsers().OrderBy(x => x.Name).Take(10).ToList();
-            foreach (PE_User user in users)
-            {
-                SyndicationItem item = new SyndicationItem
-                {
-                    Title = new TextSyndicationContent(user.Id_Honeywell),
-                    Content = new TextSyndicationContent(GetPlainText(user.Name, 200)), //here content may be Html content so we should use plain text
-                };
-                item.Links.Add(new SyndicationLink(new Uri(Request.Url.Scheme + "://" + Request.Url.Host)));
-                items.Add(item);
-            }
-
-            feed = new SyndicationFeed(siteTitle, description, new Uri(siteUrl));
-            feed.Items = items;
-
-            return new RssResult { feedData = feed };
+            var feedData = (from usr in objUM.readUsers()
+                            select new PE_User
+                            {
+                                Id_Honeywell = usr.Id_Honeywell,
+                                Name = usr.Name
+                            });
+            ViewBag.RSSFeed = feedData.ToList();
+            return View();
         }
-
-        private string GetPlainText(string htmlContent, int length = 0)
-        {
-            string HTML_TAG_PATTERN = "<.*?>";
-            string plainText = Regex.Replace(htmlContent, HTML_TAG_PATTERN, string.Empty);
-            return length > 0 && plainText.Length > length ? plainText.Substring(0, length) : plainText;
-        }
-
     }
 }
